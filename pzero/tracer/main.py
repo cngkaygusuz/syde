@@ -4,8 +4,8 @@ import uuid
 import os
 import subprocess
 
-from commands import echo
-from parser import line_parser
+from pzero.tracer.commands import echo
+from pzero.tracer.parser import line_parser
 
 
 def _get_parser():
