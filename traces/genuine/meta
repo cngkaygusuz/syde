@@ -1,2 +1,5 @@
 cat cat
 ls ls
+clear clear
+rm rm
+touch touch
