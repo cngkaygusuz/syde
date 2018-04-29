@@ -134,6 +134,10 @@ def main():
                 parsed_lines = list(map(lambda line: line_parser.parseString(line), lines))
                 processor_func(parsed_lines)
 
+                last = parsed_lines[-1]
+                if last['type'] == 'exit':
+                    print(f'program exited with {last["exit_code"]}')
+
             if fifo_closed:
                 break
 
