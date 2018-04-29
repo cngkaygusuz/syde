@@ -4,8 +4,8 @@ import uuid
 import os
 import subprocess
 
-from pzero.tracer.commands import echo
-from pzero.tracer.parser import line_parser
+from pzero.commands import echo
+from pzero.parser import line_parser
 
 
 def _get_parser():
@@ -33,9 +33,9 @@ def _parse_args_and_read_conf(parser):
 
     if args.command == 'echo':
         return echo, args.program
-    elif args.command == 'send':
+    elif args.command == 'monitor':
         # Little bit validation
-        raise Exception("No send please")
+        return monitor, args.program
 
 
 def _get_tmp_basename(run_id):
