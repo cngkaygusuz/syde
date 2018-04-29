@@ -53,6 +53,23 @@ def make_signatures(folder_path):
     return signatures
 
 
+def read_signatures(signature_path):
+    with open(signature_path, 'rb') as file_:
+        return pickle.load(file_)
+
+
+def traverse(signatures, calls) -> set:
+    assert len(calls) == NGRAM_NUMBER
+
+    curr = signatures
+    for i in range(len(calls)):
+        curr = curr.get(calls[i])
+        if curr is None:
+            return set()
+
+    return curr
+
+
 def main():
     if len(sys.argv) != 2:
         print("usage: makesig <folder_path>")
@@ -76,4 +93,32 @@ class SigTest(unittest.TestCase):
         calls = list('qwertyuiopasdfghjkl')
         signatures = {}
         _add_signatures(calls, signatures, 'baad')
+
+    def test_traverse_1(self):
+        calls = list('qwertyuiopasdfghjkl')
+        signatures = {}
+        _add_signatures(calls, signatures, 'baad')
+
+        calls = list('qwerty')
+
+        expected = set()
+        expected.add('baad')
+        received = traverse(signatures, calls)
+
+        self.assertEqual(expected, received)
+
+    def test_traverse_2(self):
+        calls = list('qwertyuiopasdfghjkl')
+        signatures = {}
+        _add_signatures(calls, signatures, 'baad')
+
+        calls = list('asdfsd')
+
+        expected = set()
+        received = traverse(signatures, calls)
+
+        self.assertEqual(expected, received)
+
+
+
 

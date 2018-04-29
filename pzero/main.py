@@ -6,6 +6,8 @@ import subprocess
 
 from pzero.commands import echo
 from pzero.parser import line_parser
+from pzero.watcher import Watcher, monitor
+from pzero.sigmaker import read_signatures
 
 
 def _get_parser():
@@ -19,6 +21,9 @@ def _get_parser():
                         help='command of the program to run',
                         nargs='*')
 
+    parser.add_argument('-s', '--signatures',
+                        help='path of the signatures')
+
     return parser
 
 
@@ -27,15 +32,18 @@ def _parse_args_and_read_conf(parser):
     Parse args.
 
     :param parser: Parser.
-    :return: A function that takes a list of `Call`, and the program to be run under ltrace.
+    :return: A function that takes a list of `Call`, and the program to be run under strace.
     """
     args = parser.parse_args()
 
     if args.command == 'echo':
         return echo, args.program
     elif args.command == 'monitor':
-        # Little bit validation
-        return monitor, args.program
+        signatures_filepath = parser.signatures
+        signatures = read_signatures(signatures_filepath)
+        watcher = Watcher(signatures)
+        cmd = lambda calls: monitor(watcher, calls)
+        return cmd, args.program
 
 
 def _get_tmp_basename(run_id):

@@ -37,10 +37,4 @@ def echo(parsed_strace_output: list):
             print(entry['call_name'])
 
 
-_backlog = []
-def monitor(parsed_ltrace_output: list):
-    """
-    Given a list of system calls, execute the monitoring logic
-    :param parsed_ltrace_output: List of elements of type 'Call'.
-    :return: nothing
-    """
+
