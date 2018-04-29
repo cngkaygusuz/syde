@@ -49,7 +49,7 @@ line_parser = microsec_timestamp + (new_call ^ resume ^ exit_remark)
 
 class ParserTests(unittest.TestCase):
     def test_parse_regular_input(self):
-        """parser is able to parse a line of ltrace output and put set timestamp and call_name fields appropriately"""
+        """parser is able to parse a line of strace output and put set timestamp and call_name fields appropriately"""
 
         instr = '1510617255.621613 free(0)                            = <void>'
 

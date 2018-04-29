@@ -109,8 +109,7 @@ def main():
 
     fifo_path = _setup_fifo(run_id)
 
-    # Construct the ltrace command
-    # -S: collect system calls only
+    # Construct the strace command
     # -ttt: timestamp every system call
     # -o fifo_path: write caught system calls to the file, which is a named pipe.
     cmd = ['strace', '-ttt', '-o', fifo_path] + program
