@@ -119,6 +119,3 @@ class SigTest(unittest.TestCase):
 
         self.assertEqual(expected, received)
 
-
-
-

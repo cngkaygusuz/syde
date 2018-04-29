@@ -35,10 +35,14 @@ class Watcher:
             for label in list(labels):
                 self._stats[label] = self._stats.get(label, 0) + 1
 
+            self._total_predictions += 1
+
         self._backlog = scalls[-NGRAM_NUMBER:]
-        self._total_predictions += 1
 
     def report(self):
+        if self._total_predictions == 0:
+            return ''
+
         top_5 = self._top_5()
         strs = list(map(lambda el: '{}:\t%{:.2f}'.format(el[0], el[1]), top_5))
         return '\n'.join(strs)
@@ -64,7 +68,10 @@ class Watcher:
 
 def monitor(watcher, calls):
     watcher.update(calls)
-    print(watcher.report())
+
+    report = watcher.report()
+    if report != '':
+        print(report)
 
 
 class Tests(unittest.TestCase):

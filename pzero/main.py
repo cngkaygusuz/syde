@@ -15,7 +15,7 @@ def _get_parser():
 
     parser.add_argument('command',
                         help='instruction of what to do with the harvested system calls',
-                        choices=['echo', 'send'])
+                        choices=['echo', 'monitor'])
 
     parser.add_argument('program',
                         help='command of the program to run',
@@ -39,7 +39,7 @@ def _parse_args_and_read_conf(parser):
     if args.command == 'echo':
         return echo, args.program
     elif args.command == 'monitor':
-        signatures_filepath = parser.signatures
+        signatures_filepath = args.signatures
         signatures = read_signatures(signatures_filepath)
         watcher = Watcher(signatures)
         cmd = lambda calls: monitor(watcher, calls)
