@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from pzero.sigmaker import NGRAM_NUMBER
@@ -6,8 +7,6 @@ from pzero.sigmaker import _add_signatures
 
 
 class Watcher:
-    # backlog buffer
-    # statistics of predictions
     def __init__(self, signatures):
         self._signatures = signatures
 
@@ -44,7 +43,7 @@ class Watcher:
             return ''
 
         top_5 = self._top_5()
-        strs = list(map(lambda el: '{}:\t%{:.2f}'.format(el[0], el[1]), top_5))
+        strs = [f'epoch no: {self._total_predictions}'] + list(map(lambda el: '{0:10}: %{1:.2f}'.format(el[0], el[1]), top_5))
         return '\n'.join(strs)
 
     def _top_5(self):
@@ -71,6 +70,7 @@ def monitor(watcher, calls):
 
     report = watcher.report()
     if report != '':
+        os.system('clear')
         print(report)
 
 
