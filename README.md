@@ -2,6 +2,12 @@
 
 Monitor and detect programs by their system calls.
 
+Project Group:
+
+* Cengiz Kaygusuz, 6083867, ckayg001@fiu.edu
+* Julian Zuluaga, 4613965, jzulu013@fiu.edu
+* Kyle Katarn, 
+
 # Requirements
 
 Python 3.6 and newer versions.
@@ -56,6 +62,10 @@ the folder containing the traces. This file is essentially labels
 each trace. `sigmaker` reads this file to obtain filenames for
 traces, and generates signatures, labeling them accordingly.
 
+Because of timing constrains, we could not find a set of suitable malware to test our tool.
+Nevertheless, our tool is able to successfully distinguish between a few samples of standard
+POSIX tools. Signatures of these files may be found in file `traces/genuine/signatures`.
+
 # Algorithm
 
 An ngram-based approach is utilized. These n-grams are held in a trie
@@ -71,4 +81,5 @@ The trie is implemented as nested hashmaps, or "dictionaries" in Python
 jargon. Each step in the traversal yields one level deeper hashmap
 with the exception of the last one; the last step yields a "set" of
 labels.
+
 
