@@ -6,7 +6,7 @@ Project Group:
 
 * Cengiz Kaygusuz, 6083867, ckayg001@fiu.edu
 * Julian Zuluaga, 4613965, jzulu013@fiu.edu
-* Kyle Katarn, 
+* Kyle Denney, 5872074, kdenn016@fiu.edu
 
 # Requirements
 
