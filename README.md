@@ -2,6 +2,14 @@
 
 Monitor and detect programs by their system calls.
 
+# Requirements
+
+Python 3.6 and newer versions.
+
+Install dependencies before using:
+
+`pip install -r requirements.txt`
+
 # Usage
 
 Pzero comes with two main programs
