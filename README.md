@@ -1,12 +1,6 @@
-# Pzero
+# Syde
 
 Monitor and detect programs by their system calls.
-
-Project Group:
-
-* Cengiz Kaygusuz, 6083867, ckayg001@fiu.edu
-* Julian Zuluaga, 4613965, jzulu013@fiu.edu
-* Kyle Denney, 5872074, kdenn016@fiu.edu
 
 # Requirements
 
@@ -18,14 +12,14 @@ Install dependencies before using:
 
 # Usage
 
-Pzero comes with two main programs
+Syde comes with two executable programs:
 
-`pzero/sigmaker`: Generate program signatures. Takes one argument,
+`syde/sigmaker`: Generate program signatures. Takes one argument,
 which is the path to the trace folder. 
 
 ```bash
 # on the folder where the README.md resides
-PYTHONPATH=$PWD python pzero/sigmaker traces/genuine
+PYTHONPATH=$PWD python syde/sigmaker traces/genuine
 
 # the program writes the signatures to a file called "signatures" 
 # in the given folder
@@ -34,9 +28,9 @@ PYTHONPATH=$PWD python pzero/sigmaker traces/genuine
 `traces/genuine` folder may be inspected for the expected structure
 of the traces folder. 
 
-`pzero/main`: Main entry of the program. There are two main commands:
+`syde/main`: Main entry of the program. There are two main commands:
     
-* `echo`: Prints the harvested programs in the format understood
+* `echo`: Prints the harvested programs in the format understood.
 by `sigmaker`
 * `monitor`: Executes the program and prints its guesses.
 
@@ -44,8 +38,8 @@ Examples:
 
 ```bash
 
-PYTHONPATH=$PWD python pzero/main.py echo touch foo
-PYTHONPATH=$PWD python pzero/main.py --signatures traces/genuine/signatures monitor touch foo
+PYTHONPATH=$PWD python syde/main.py echo touch foo
+PYTHONPATH=$PWD python syde/main.py --signatures traces/genuine/signatures monitor touch foo
 
 ```
 
@@ -54,7 +48,7 @@ PYTHONPATH=$PWD python pzero/main.py --signatures traces/genuine/signatures moni
 As mentioned, `echo` command is used to collect traces.
 
 ```bash
-PYTHONPATH=$PWD python pzero/main echo touch foo > traces/genuine/touch.trace
+PYTHONPATH=$PWD python syde/main echo touch foo > traces/genuine/touch.trace
 ```
 
 After obtaining the traces, a file named `meta` must be created in 

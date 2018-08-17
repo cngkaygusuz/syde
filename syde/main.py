@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import uuid
+import sys
 import os
 import subprocess
 
@@ -135,7 +136,7 @@ def main():
 
                 last = parsed_lines[-1]
                 if last['type'] == 'exit':
-                    print(f'program exited with {last["exit_code"]}')
+                    sys.stderr.write(f'program exited with {last["exit_code"]}\n')
 
             if fifo_closed:
                 break
