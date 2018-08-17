@@ -22,7 +22,7 @@ which is the path to the trace folder.
 PYTHONPATH=$PWD python syde/sigmaker traces/genuine
 
 # the program writes the signatures to a file called "signatures" 
-# in the given folder
+# in the given folder.
 ```
 
 `traces/genuine` folder may be inspected for the expected structure
