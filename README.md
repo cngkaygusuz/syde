@@ -76,4 +76,8 @@ jargon. Each step in the traversal yields one level deeper hashmap
 with the exception of the last one; the last step yields a "set" of
 labels.
 
+# Credits
+
+This project has been designed and implemented in collaboration with my most awesome colleagues 
+[Julian Zuluaga](github.com/zuliandres) and [Kyle Denney](github.com/kyle-denney).
 
