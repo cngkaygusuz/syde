@@ -1,6 +1,6 @@
 # Syde
 
-Monitor and detect programs by their system calls.
+An experimental software to Monitor and detect programs by their system calls.
 
 # Requirements
 
