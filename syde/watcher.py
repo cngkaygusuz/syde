@@ -1,9 +1,9 @@
 import os
 import unittest
 
-from pzero.sigmaker import NGRAM_NUMBER
-from pzero.sigmaker import traverse
-from pzero.sigmaker import _add_signatures
+from syde.sigmaker import NGRAM_NUMBER
+from syde.sigmaker import traverse
+from syde.sigmaker import _add_signatures
 
 
 class Watcher:

@@ -4,10 +4,10 @@ import uuid
 import os
 import subprocess
 
-from pzero.commands import echo
-from pzero.parser import line_parser
-from pzero.watcher import Watcher, monitor
-from pzero.sigmaker import read_signatures
+from syde.commands import echo
+from syde.parser import line_parser
+from syde.watcher import Watcher, monitor
+from syde.sigmaker import read_signatures
 
 
 def _get_parser():
