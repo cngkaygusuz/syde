@@ -58,9 +58,13 @@ the folder containing the traces. This file is essentially labels
 each trace. `sigmaker` reads this file to obtain filenames for
 traces, and generates signatures, labeling them accordingly.
 
-Because of timing constrains, we could not find a set of suitable malware to test our tool.
-Nevertheless, our tool is able to successfully distinguish between a few samples of standard
-POSIX tools. Signatures of these files may be found in file `traces/genuine/signatures`.
+The program is developed to aid dynamic analysis of malware; namely to 
+identify them through their system calls, but the repo contains
+signatures for a couple of standard POSIX tools for the purpose of demonstration.
+The contained signatures has been obtained in a Linux machine, it should
+work just fine under any Linux distribution, but you probably will need to
+collect the traces and build the signatures from scratch if you are using another
+POSIX'y operating system, such as FreeBSD.
 
 # Algorithm
 
