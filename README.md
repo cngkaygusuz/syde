@@ -86,4 +86,3 @@ labels.
 
 This project has been designed and implemented in collaboration with my most awesome colleagues 
 [Julian Zuluaga](github.com/zuliandres) and [Kyle Denney](github.com/kyle-denney).
-
