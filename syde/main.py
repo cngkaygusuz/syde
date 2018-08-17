@@ -136,7 +136,7 @@ def main():
 
                 last = parsed_lines[-1]
                 if last['type'] == 'exit':
-                    sys.stderr.write(f'program exited with {last["exit_code"]}\n')
+                    sys.stderr.write(f'\nprogram exited with {last["exit_code"]}\n')
 
             if fifo_closed:
                 break

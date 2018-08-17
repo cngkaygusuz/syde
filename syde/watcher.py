@@ -1,4 +1,5 @@
 import os
+import sys
 import unittest
 
 from syde.sigmaker import NGRAM_NUMBER
@@ -46,6 +47,13 @@ class Watcher:
         strs = [f'epoch no: {self._total_predictions}'] + list(map(lambda el: '{0:10}: %{1:.2f}'.format(el[0], el[1]), top_5))
         return '\n'.join(strs)
 
+    def best_guess(self):
+        if self._total_predictions == 0:
+            return ''
+
+        bg = self._top_5()[0]
+        return '{0:10} ({1:.2f}%)'.format(bg[0], bg[1])
+
     def _top_5(self):
         keys = list(self._stats)
 
@@ -68,10 +76,11 @@ class Watcher:
 def monitor(watcher, calls):
     watcher.update(calls)
 
-    report = watcher.report()
-    if report != '':
-        os.system('clear')
-        print(report)
+    best_guess = watcher.best_guess()
+
+    print('\r', ' ' * 50, end='')  # erase the line
+    print('\r', best_guess, sep='', end='')
+    sys.stdout.flush()
 
 
 class Tests(unittest.TestCase):
