@@ -4,9 +4,11 @@ An experimental software to Monitor and detect programs by their system calls.
 
 # Requirements
 
-Python 3.6 and newer versions.
+`Python >3.6`
 
-Install dependencies before using:
+`strace`
+
+Install python dependencies before using:
 
 `pip install -r requirements.txt`
 
