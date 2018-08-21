@@ -85,4 +85,4 @@ labels.
 # Credits
 
 This project has been designed and implemented in collaboration with my most awesome colleagues 
-[Julian Zuluaga](github.com/zuliandres) and [Kyle Denney](github.com/kyle-denney).
+[Julian Zuluaga](https://github.com/zuliandres) and [Kyle Denney](https://github.com/kyle-denney).
