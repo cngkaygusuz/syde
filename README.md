@@ -73,7 +73,7 @@ where each symbol is a system call. Assuming we are using 6-grams,
 when monitoring, obtained system calls are read by a sliding window
 of size 6. These 6 system calls are then used to traverse the trie; this
 traversal yields a set of labels. Then, the counter for each respective
-label is incremented. If the 6-gram system calls are not recognized, the counter labeled as
+label is incremented. If the 6-gram are not recognized, the counter labeled as
 "unknown" is incremented. The label which boasts the highest counter is 
 yielded as the final decision about the monitored program.
 
